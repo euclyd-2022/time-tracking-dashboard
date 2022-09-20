@@ -5,7 +5,6 @@ body{
 
 
 
-
 .container{
   display: inline-grid;
   grid-template-columns: 200px 200px 200px 200px;
@@ -19,13 +18,13 @@ body{
 }
 .color.item-1{
   height: 310px;
-  
+
 }
 .color.item-1 > div{
 
   height:120px;
   top:280px;
-  z-index: -1;
+  
   padding-top:30px;
   }
 
@@ -47,7 +46,7 @@ body{
 
   height:100px;
   top:66px;
-  z-index: -1;
+  
   padding-top:30px;
   }
 }
@@ -74,7 +73,6 @@ body{
   width: 100%;
   height:150px;
   border: 1px solid black;
-  background: hsl(235, 46%, 20%);
   border-radius: 10px;
   color:white;
 }
@@ -91,5 +89,15 @@ body{
 .violet {background: hsl(264, 64%, 52%);}
 .soft-orange {background: hsl(43, 84%, 65%);}
 .blue{background: hsl(246, 80%, 60%); }
+.dark-blue{ background: hsl(235, 46%, 20%);}
 
+li {
+  list-style: none;
+}
+button {
+  background: none;
+  border: none;
+  color: White;
+
+}
 
