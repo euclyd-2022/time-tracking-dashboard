@@ -1,6 +1,6 @@
 import './App.css';
 import jsonData from './data.json';
-import React, {useState} from 'react';
+import React from 'react';
 import Card, {CardHead} from './Card';
 import './images/icon-exercise.svg';
 import { v4 as uuidv4 } from 'uuid';
@@ -10,22 +10,20 @@ import { v4 as uuidv4 } from 'uuid';
 
 function App() {
 
-  const [getTime, setTime] = useState(jsonData);
+  
  
   let color;
   let hours;
 
   function changePeriod(timeframe){
-    console.log(timeframe)
-
-    hours = getTime.filter(function (el) {
-  return el.timeframes.daily.current;
-
-})
-console.log(hours)
-return hours;
+   console.log(timeframe)
+   hours = jsonData.map(function (obj) { return obj.timeframes.daily.current});
+   console.log(hours)
+   return hours;
   }
-  const orderInfo = getTime.map(({title, timeframes})=> {
+
+
+  const orderInfo = jsonData.map(({title}, index)=> {
 
     
     
@@ -51,12 +49,15 @@ return hours;
     break;
     case 'Self Care':
     color='soft-orange';
+    break;
+    default:
+    color=''
   }
   
  
 
  return (   
-  <Card key={key} title={title} time={hours} bgColor={color} changePeriod={changePeriod}/>
+  <Card key={key} id={index} title={title} hours={hours} bgColor={color} changePeriod={changePeriod}/>
   )}
   )
 
