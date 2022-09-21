@@ -35,6 +35,16 @@ function App() {
   // const {title, timeframes: {daily: {current: daily_current, previous: daily_previous}, monthly: {current: monthly_current, previous: monthly_previous}, weekly: {current: weekly_current, previous: weekly_previous}}} = randomname;
   // console.log(title +' '+daily_current +' '+ weekly_current +' '+ monthly_current) // = Work 5 32 103
 
+  function changePeriod(timeframe){
+       
+    if (timeframe==='monthly'){
+     console.log(timeframe)
+     //setTimes([monthly.current,monthly.previous])
+     
+  }
+ }
+  
+
   const new_activity= jsonData.map(function m(new_activity, index) {
   let key=uuidv4(); 
   const {title, timeframes: {daily: {current: daily_current, previous: daily_previous}, monthly: {current: monthly_current, previous: monthly_previous}, weekly: {current: weekly_current, previous: weekly_previous}}} = new_activity
@@ -62,13 +72,20 @@ function App() {
     default:
     color=''
   }
+
+
+
   return (<Card key={key} id={index} title={title} current={daily_current} previous={daily_previous}  bgColor={color}/>
   ) 
    
 })
 
 return (   
-  <div className='container'>{new_activity}</div>
+  <div className='container'>
+   <CardHead key='0' title='item-1' bgColor='blue' time={['daily', 'weekly', 'monthly']} header_card={true} changePeriod={() => changePeriod()} /> 
+    {new_activity}
+    <button onClick={()=>changePeriod('monthly')}>monthly</button>
+    </div>
    
 
 )
