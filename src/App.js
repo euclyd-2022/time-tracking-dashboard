@@ -1,37 +1,58 @@
 import './App.css';
 import jsonData from './data.json';
-import React from 'react';
+import React, { useState } from 'react';
 import Card, {CardHead} from './Card';
 import './images/icon-exercise.svg';
 import { v4 as uuidv4 } from 'uuid';
 //uuidv4(); // ⇨ '9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d'
 
 
+// function changePeriod(timeframe){
+
+
+//   if (timeframe==='monthly'){
+//    current_hours = jsonData.map(function (obj) { return obj.timeframes.monthly.current});
+//   } 
+//   else if (timeframe==='weekly'){
+//    current_hours = jsonData.map(function (obj) { return obj.timeframes.weekly.current});
+  
+//   } else {
+//    current_hours = jsonData.map(function (obj) { return obj.timeframes.daily.current});
+  
+//   }
+//   console.log(current_hours + previous_hours)
+//   return current_hours;
+//  }
+
+
 
 function App() {
 
+  const period= jsonData.map(({timeframes})=>timeframes)
+  const [{daily}, {monthly}, {weekly}] = period;
+  var current_hours = daily.current;
+  var previous_hours  = daily.previous;
+  const [times, setTimes] = useState([current_hours,previous_hours])
+
+  console.log('c' + daily.current + ' p'  +daily.previous + ' ' + times)
   
- 
-  let color;
-  let hours;
 
   function changePeriod(timeframe){
-   console.log(timeframe)
-   hours = jsonData.map(function (obj) { return obj.timeframes.daily.current});
-   console.log(hours)
-   return hours;
+    console.log(timeframe)
+     if (timeframe==='monthly'){
+      console.log(monthly.current + monthly.previous)
+      setTimes([monthly.current,monthly.previous])
+      
+   }
   }
 
+ 
+  
 
   const orderInfo = jsonData.map(({title,timeframes}, index)=> {
-
-    hours = timeframes.daily.current;
-   
-    
-   
-
-    let key=uuidv4();
-  
+  //const {daily, monthly, weekly} = timeframes;
+  let key=uuidv4();
+  let color;
     switch(title){
     case 'Work':
     color='orange';
@@ -55,24 +76,19 @@ function App() {
     color=''
   }
   
- 
-
  return (   
-  <Card key={key} id={index} title={title} hours={hours} bgColor={color} changePeriod={changePeriod}/>
+  <Card key={key} id={index} title={title} current={times[0]} previous={times[1]}  bgColor={color}/>
   )}
   )
 
-
-
-
   // var header_card=<React.Fragment><button onClick={()=>console.log('daily')}>daily</button></React.Fragment>;
-  
-  
+
   return ( 
     
     <div className='container'>
-       <CardHead key='0' title='item-1' bgColor='blue' time={['daily', 'weekly', 'monthly']} header_card={true} changePeriod={changePeriod} />
+       <CardHead key='0' title='item-1' bgColor='blue' time={['daily', 'weekly', 'monthly']} header_card={true} changePeriod={() => this.changePeriod('daily')} />
      {orderInfo}
+     <button onClick={()=>changePeriod('monthly')}>monthly</button>
       </div>
     
     

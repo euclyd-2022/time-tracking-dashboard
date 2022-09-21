@@ -7,8 +7,8 @@ const Card = (props) => {
     <div className={`color ${props.title} ${props.bgColor}`} >
         <div className={`card ${props.id} dark-blue`}>
         <div className="title">{props.title}</div>
-          <div className="hours-large">{props.hours} </div>
-    
+          <div className="hours-large">{props.current} Hours</div>
+          <div className="previous">{props.previous} </div>
         </div>
         
         </div>
@@ -24,7 +24,7 @@ const CardHead = (props) => {
         <div className={`card ${props.title} dark-blue`}>
           <div className={`color ${props.title} ${props.bgColor}`} >   
             </div>
-          {<React.Fragment>
+          
             <ul>
               <li>
                 <button onClick={()=>props.changePeriod('daily')}>{props.time[0]}</button>
@@ -36,7 +36,7 @@ const CardHead = (props) => {
                     <button onClick={()=>props.changePeriod('monthly')}>{props.time[2]}</button>
                     </li>
                     </ul>
-                    </React.Fragment>}
+                    
             
          </div>
 
