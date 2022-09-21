@@ -8,7 +8,7 @@ const Card = (props) => {
         <div className={`card ${props.id} dark-blue`}>
         <div className="title">{props.title}</div>
           <div className="hours-large">{props.current} Hours</div>
-          <div className="previous">{props.previous} </div>
+          <div className="previous">{props.previous} last time</div>
         </div>
         
         </div>
