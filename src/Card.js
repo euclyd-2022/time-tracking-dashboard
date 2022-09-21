@@ -5,7 +5,7 @@ const Card = (props) => {
 
   return (
     <div className={`color ${props.title} ${props.bgColor}`} >
-        <div className={`card ${props.title} dark-blue`}>
+        <div className={`card ${props.id} dark-blue`}>
         <div className="title">{props.title}</div>
           <div className="hours-large">{props.hours} </div>
     

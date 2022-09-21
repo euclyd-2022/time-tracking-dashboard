@@ -23,9 +23,10 @@ function App() {
   }
 
 
-  const orderInfo = jsonData.map(({title}, index)=> {
+  const orderInfo = jsonData.map(({title,timeframes}, index)=> {
 
-    
+    hours = timeframes.daily.current;
+   
     
    
 
