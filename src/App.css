@@ -1,6 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap');
+
+
 body{
 
   background: black;
+  font-family: 'Rubik', sans-serif;
 }
 
 
@@ -57,7 +61,15 @@ body{
   
 }
 
+.hours-large{
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  font-weight: 500;
+  border: 1px solid white;
+  color:white;
 
+}
 
 .color {
 

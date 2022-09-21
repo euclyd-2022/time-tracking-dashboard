@@ -11,21 +11,25 @@ import { v4 as uuidv4 } from 'uuid';
 function App() {
 
   const [getTime, setTime] = useState(jsonData);
+ 
   let color;
-  
-  
+  let hours;
 
-  
+  function changePeriod(timeframe){
+    console.log(timeframe)
+
+    hours = getTime.filter(function (el) {
+  return el.timeframes.daily.current;
+
+})
+console.log(hours)
+return hours;
+  }
   const orderInfo = getTime.map(({title, timeframes})=> {
 
-    var hours;
-    function changePeriod(timeframe){
-       hours = timeframes.daily.current
-      console.log(hours);
-       //spread the json 
-        //setTime(hours);
-        return hours;
-    }
+    
+    
+   
 
     let key=uuidv4();
   
@@ -59,14 +63,13 @@ function App() {
 
 
 
-
   // var header_card=<React.Fragment><button onClick={()=>console.log('daily')}>daily</button></React.Fragment>;
   
   
   return ( 
     
     <div className='container'>
-       <CardHead key='0' title='item-1' bgColor='blue' time={['daily', 'weekly', 'monthly']} header_card={true}  />
+       <CardHead key='0' title='item-1' bgColor='blue' time={['daily', 'weekly', 'monthly']} header_card={true} changePeriod={changePeriod} />
      {orderInfo}
       </div>
     

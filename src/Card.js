@@ -6,21 +6,9 @@ const Card = (props) => {
   return (
     <div className={`color ${props.title} ${props.bgColor}`} >
         <div className={`card ${props.title} dark-blue`}>
-          {props.title} 
-          {props.hours} 
-          {<React.Fragment>
-            <ul>
-              <li>
-                <button onClick={()=>props.changePeriod('daily')}>daily</button>
-                </li>
-                <li>
-                  <button onClick={()=>props.changePeriod('weekly')}>weekly</button>
-                  </li>
-                  <li>
-                    <button onClick={()=>props.changePeriod('monthly')}>monthly</button>
-                    </li>
-                    </ul>
-                    </React.Fragment>}
+        <div className="title">{props.title}</div>
+          <div className="hours-large">{props.hours} </div>
+    
         </div>
         
         </div>
