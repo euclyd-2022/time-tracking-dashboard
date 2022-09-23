@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css'
 import jsonData from './data.json';
+import jeremy from'./images/image-jeremy.png'
 
 const Card = ({id, data, time}) => {
 
@@ -30,11 +31,12 @@ const Card = ({id, data, time}) => {
   
 
   return (
-    <div className={`color ${id} ${color}`} >
-        <div className={`card ${id} dark-blue`}>
-        <div className="title">{data.title}</div>  
-          <div className="hours-large">{data.timeframes[`${time}`].current} Hours</div>
-          <div className="previous">{data.timeframes[`${time}`].previous} last time</div>
+    <div className={`color ${data.title} ${color}`} >
+        <div className={`card ${data.title} dark-blue`}>
+        <div className='text'><div className="title">{data.title}<span className='three-dots'></span></div>  
+          <div className="hours-large">{data.timeframes[`${time[0]}`].current} hrs</div>
+          <div className="previous pale-blue">{time[1]} - {data.timeframes[`${time[0]}`].previous}hrs</div>
+          </div>
       
         </div>
         
@@ -44,12 +46,15 @@ const Card = ({id, data, time}) => {
   )
 }
 
-const CardHead = ({title, bgColor, period, changePeriod}) => {
+const CardHead = ({title, name, bgColor, period, changePeriod}) => {
  
   return (
     
         <div className={`card ${title} dark-blue`}>
-          <div className={`color ${title} ${bgColor}`} >   
+           
+          <div className={`color ${title} ${bgColor}`} >
+            <div ><img className='avatar' src={jeremy} alt='name'></img><div className='report-name'><span className='report-for'>Report for</span><br />{name}</div> </div>
+            
             </div>
           
             <ul>

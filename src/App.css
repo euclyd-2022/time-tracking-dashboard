@@ -1,63 +1,156 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap');
 
+*{margin: 0;
+  padding: 0;}
 
-body{
+  body {
+    height:100vh;
+    background: hsl(226, 43%, 10%);
+    font-family: 'Rubik', sans-serif;
+    font-size: 16px;
+    color:White;
+  }
 
-  background: black;
-  font-family: 'Rubik', sans-serif;
-  color:White;
-}
-
+  
 
 
 .container{
-  display: inline-grid;
+  display: grid;
+  justify-content: center;
   grid-template-columns: 200px 200px 200px 200px;
   grid-template-rows: 200px 200px; 
   column-gap: 30px;
   row-gap: 30px;
   grid-auto-flow: row;
-  margin:190px auto;
-
+  margin: 150px auto;
+  width: fit-content;
+  
 }
+
+
+ul, li {
+  list-style: none;
+  padding-left:10px;
+  text-align:left;
+
+  
+}
+
 .card.item-1{
   border-radius: 15px;
-
+  text-align:center;
 }
+
 
 .color.item-1{
   height: 310px;
-
+  text-align:left;
+  
 }
+
 .color.item-1 > div{
 
-  height:120px;
-  top:280px;
+ 
   border-radius: 15px;
   padding-top:30px;
+  padding-left: 20px
+  
   }
 
+  .report-name{
+    
+    font-size: 1.8em;
+    font-weight: 100;
+    
+  }
+  .report-for{
+    
+    font-size: 0.8rem;
+  }
+
+  .previous{
+    float:none;
+    font-weight:300;
+    font-size: 14px;
+  }
+  
+  
+
 @media screen and (max-width: 500px){
+
+
   .container{
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: 1fr;
     grid-template-rows: 75px;
     grid-gap: 1rem;
     row-gap: 5rem;
-    margin: 5px;
+    margin: 15px auto;
+    width:100%;
   }
 
+  ul, li {
+    position:relative;
+    display: inline;
+    text-align:center;
+    padding-left:10px;
+    top:8px;
+  }
   .color.item-1{
-    height: 100px;
+    height: 140px;
 }
 
-.color.item-1 > div{
 
-  height:100px;
-  top:66px;
-  border-radius: 15px;
-  padding-top:30px;
+
+  .card.item-1{
+  height: 200px;
   }
+
+.report-name{
+  font-size: 1.8em;
+  font-weight: 100;
+  
+  
+}
+.report-for{
+  
+  font-size: 0.8rem;
+}
+
+.avatar{
+  float: left;
+}
+
+.previous{
+  float:right;
+  margin-right:-10px;
+  margin-top:30px;
+
+}
+}
+
+
+.three-dots::after{
+  float:right;
+  position: relative;
+  content: '\2026';
+  font-size: 1.5em;
+  color: hsl(236, 100%, 87%);
+  top: -13px;
+  
+  }
+
+  .three-dots:hover::after{
+    color:white;
+  }
+
+.avatar{
+
+  height: 75px;
+  width: 75px;
+  border: 2px solid white;
+  border-radius:50%;
+  margin-right:15px;
 }
   
 .item-1{
@@ -68,17 +161,17 @@ body{
 
 .hours-large{
   display: inline-block;
-  font-weight: 500;
- 
+  font-weight: 300;
+  font-size:2.5rem;
   color:white;
+  padding: 15px 0 8px 0;
 
 }
 
 .color {
 
   width: 100%;
-  border: 1px solid black;
-  background: White;
+  border: 1px solid hsl(226, 43%, 10%);
   border-radius: 15px;
   
 }
@@ -87,32 +180,83 @@ body{
   top: 50px;
   width: 100%;
   height:150px;
-  border: 1px solid black;
+  border: 1px solid hsl(226, 43%, 10%);
   border-radius: 15px;
-  color:white;
+  
+  
 }
 
+.card:hover{
+  background:hsl(236, 41%, 34%)
+}
+
+.card.item-1:hover{
+  background:hsl(235, 46%, 20%);
+}
+
+
+.text{
+  padding:18px;
+}
+
+
+
 .orange{
-  background:hsl(15, 100%, 70%);
+  
+  background: url(./images/icon-work.svg) no-repeat;
+  background-position: top right;
+  background-color:hsl(15, 100%, 70%);
 }
 
 .soft-blue{
-  background:hsl(195, 74%, 62%);
+  background: url(./images/icon-play.svg) no-repeat;
+  background-position: top right;
+  background-color:hsl(195, 74%, 62%);
+  
 }
-.light-red{background: hsl(348, 100%, 68%);}
-.lime-green{background: hsl(145, 58%, 55%);}
-.violet {background: hsl(264, 64%, 52%);}
-.soft-orange {background: hsl(43, 84%, 65%);}
+.light-red{
+  background: url(./images/icon-study.svg) no-repeat;
+  background-position: top right;
+  background-color: hsl(348, 100%, 68%);
+  
+}
+.lime-green{
+  background: url(./images/icon-exercise.svg) no-repeat;
+  background-position: top right;
+  background-color: hsl(145, 58%, 55%);
+  
+}
+.violet {
+  background: url(./images/icon-social.svg) no-repeat;
+  background-position: top right;
+  background-color: hsl(264, 64%, 52%);
+  
+}
+.soft-orange {
+  background: url(./images/icon-self-care.svg) no-repeat;
+  background-position: top right;
+  background-color: hsl(43, 84%, 65%);
+  
+}
 .blue{background: hsl(246, 80%, 60%); }
 .dark-blue{ background: hsl(235, 46%, 20%);}
 
-li {
-  list-style: none;
-}
+.very-dark-blue {background: hsl(226, 43%, 10%)}
+.desaturated-blue{background: hsl(235, 45%, 61%)}
+.pale-blue{color: hsl(236, 100%, 87%)}
+
+
 button {
+  font-size: 16px;
   background: none;
   border: none;
-  color: White;
+  color: hsl(236, 100%, 87%);
+  padding: 5px;
+  text-align: left;
+}
 
+button:hover, button:focus {
+  
+  color: White;
 }
 

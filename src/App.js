@@ -9,18 +9,18 @@ import './images/icon-exercise.svg';
 
 function App() {
 
-const [timeF, setTimeframe] = useState('daily'); 
+const [timeF, setTimeframe] = useState(['daily','Yesterday']); 
 
 function changePeriod(timeframe) {
   
   if (timeframe==='monthly'){
-    setTimeframe('monthly')
+    setTimeframe(['monthly','Last Month'])
   }
   else if  (timeframe==='weekly'){
-    setTimeframe('weekly')
+    setTimeframe(['weekly','Last Week'])
   }
   else {
-    setTimeframe('daily')
+    setTimeframe(['daily','Yesterday'])
   }
   
 }
@@ -32,8 +32,9 @@ function changePeriod(timeframe) {
 
 
 return (   
+  
   <div className='container'>
-   <CardHead key='100' title='item-1' bgColor='blue' period={['daily', 'weekly', 'monthly']} changePeriod={changePeriod} /> 
+   <CardHead key='100' title='item-1' bgColor='blue' name='Jeremy Robson' period={['Daily', 'Weekly', 'Monthly']} changePeriod={changePeriod} /> 
    {jsonData.map((item, index)=>(<Card key={index} id={index} data={item} time={timeF} />))}
     </div>
    
