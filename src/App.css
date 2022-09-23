@@ -19,8 +19,12 @@ body{
   grid-auto-flow: row;
   margin:190px auto;
 
+}
+.card.item-1{
+  border-radius: 15px;
 
 }
+
 .color.item-1{
   height: 310px;
 
@@ -29,7 +33,7 @@ body{
 
   height:120px;
   top:280px;
-  
+  border-radius: 15px;
   padding-top:30px;
   }
 
@@ -51,7 +55,7 @@ body{
 
   height:100px;
   top:66px;
-  
+  border-radius: 15px;
   padding-top:30px;
   }
 }
@@ -84,7 +88,7 @@ body{
   width: 100%;
   height:150px;
   border: 1px solid black;
-  border-radius: 10px;
+  border-radius: 15px;
   color:white;
 }
 
