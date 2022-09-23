@@ -85,8 +85,8 @@ ul, li {
     grid-template-rows: 75px;
     grid-gap: 1rem;
     row-gap: 5rem;
-    margin: 15px auto;
-    width:100%;
+    margin-top: 5%;
+    width:95%;
   }
 
   ul, li {
